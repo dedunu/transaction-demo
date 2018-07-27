@@ -45,7 +45,7 @@ public class SlidingWindowDataStore {
 
         if (timestamp - (System.currentTimeMillis() / 1000) > PERIOD ||
                 timestamp > (System.currentTimeMillis() / 1000) ||
-                pointer - timestamp > PERIOD) {
+                pointer - timestamp >= PERIOD) {
             /*
              *  Checking for multiple reasons:
              *      whether transaction is older than the period of time
@@ -77,7 +77,7 @@ public class SlidingWindowDataStore {
         int position = cursor.getPosition((int) Math.abs(timestamp - pointer));
 
         if (position == -1) {
-            // Invalid position release the write lock and return an error
+            // Invalid position release the write lock and acknowledge failed transaction
             logger.error("cursor.getPosition returned -1");
             writeLock.unlock();
             return false;

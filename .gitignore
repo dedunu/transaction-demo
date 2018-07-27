@@ -15,6 +15,7 @@ target/
 
 # InteliJ IDEA
 *.iml
+.idea/
 
 # Package Files #
 *.jar
