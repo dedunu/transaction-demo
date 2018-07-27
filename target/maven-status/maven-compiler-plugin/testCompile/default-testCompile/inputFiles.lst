@@ -1,0 +1,4 @@
+/home/dedunu/src/transactiondemo/src/test/java/org/dedunu/transaction/controller/TransactionControllerIT.java
+/home/dedunu/src/transactiondemo/src/test/java/org/dedunu/transaction/manager/CursorTest.java
+/home/dedunu/src/transactiondemo/src/test/java/org/dedunu/transaction/manager/SlidingWindowDataStoreTest.java
+/home/dedunu/src/transactiondemo/src/test/java/org/dedunu/transaction/controller/TransactionControllerTest.java
