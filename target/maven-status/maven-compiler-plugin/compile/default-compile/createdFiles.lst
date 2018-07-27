@@ -1,7 +1,0 @@
-org/dedunu/transaction/manager/SlidingWindowDataStore.class
-org/dedunu/transaction/manager/Transaction.class
-org/dedunu/transaction/manager/Cursor.class
-org/dedunu/transaction/manager/TransactionManager.class
-org/dedunu/transaction/manager/Statistics.class
-org/dedunu/transaction/controller/TransactionController.class
-org/dedunu/transaction/Application.class

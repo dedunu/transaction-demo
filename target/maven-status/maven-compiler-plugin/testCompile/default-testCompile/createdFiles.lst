@@ -1,4 +1,0 @@
-org/dedunu/transaction/controller/TransactionControllerIT.class
-org/dedunu/transaction/controller/TransactionControllerTest.class
-org/dedunu/transaction/manager/CursorTest.class
-org/dedunu/transaction/manager/SlidingWindowDataStoreTest.class
