@@ -1,14 +1,18 @@
 package org.dedunu.transaction.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.io.Serializable;
+
 /**
  * Transaction object was created to use as an object
  * in /transaction endpoint in TransactionController.
  */
-public class Transaction {
+public class Transaction implements Serializable {
     private long timestamp;
     private double amount;
 
-    public Transaction(double amount, long timestamp) {
+    public Transaction(@JsonProperty("amount")double amount, @JsonProperty("timestamp")long timestamp) {
         this.amount = amount;
         this.timestamp = timestamp;
     }
