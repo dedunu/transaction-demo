@@ -2,7 +2,7 @@ package org.dedunu.transaction.manager;
 
 class Cursor {
 
-    private int cursorSize;
+    private final int cursorSize;
     private int cursor = 0;
 
     /**

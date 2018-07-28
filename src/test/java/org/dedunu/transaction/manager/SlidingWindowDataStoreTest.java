@@ -97,7 +97,7 @@ public class SlidingWindowDataStoreTest {
             slidingWindowDataStore.updateStatistics(1000, (System.currentTimeMillis() / 1000) - 60);
         }
 
-        Thread.sleep(1000);
+        Thread.sleep(500);
 
         statistics = slidingWindowDataStore.getStatistics();
 
@@ -122,5 +122,21 @@ public class SlidingWindowDataStoreTest {
         statistics = slidingWindowDataStore.getStatistics();
 
         Assert.assertEquals(Double.POSITIVE_INFINITY, statistics.getSum(), 0.001);
+    }
+
+
+    @Test
+    public void memoryRestTest() throws InterruptedException {
+        slidingWindowDataStore = new SlidingWindowDataStore();
+
+        slidingWindowDataStore.updateStatistics(1000, (System.currentTimeMillis() / 1000));
+
+        Thread.sleep(61000);
+
+        slidingWindowDataStore.updateStatistics(2000, (System.currentTimeMillis() / 1000));
+
+        statistics = slidingWindowDataStore.getStatistics();
+
+        Assert.assertEquals(2000, statistics.getSum(), 0.001);
     }
 }

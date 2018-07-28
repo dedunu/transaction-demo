@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class TransactionController {
-    private Logger logger = LoggerFactory.getLogger(TransactionController.class);
+    private final Logger logger = LoggerFactory.getLogger(TransactionController.class);
 
     @RequestMapping("/")
     public String index() {

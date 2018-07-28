@@ -8,7 +8,7 @@ public enum TransactionManager {
     // TransactionManger is an enum to achieve singleton pattern
     INSTANCE;
 
-    private SlidingWindowDataStore dataStore = new SlidingWindowDataStore();
+    private final SlidingWindowDataStore dataStore = new SlidingWindowDataStore();
 
     public boolean addTransaction(Transaction transaction) {
         if ((transaction.getTimestamp() - System.currentTimeMillis()) / 1000 <= 60) {

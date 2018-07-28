@@ -9,6 +9,7 @@
 
 
 Build will take some time with test because it takes 60 or more seconds sometimes to test.
+(org.dedunu.transaction.manager.SlidingWindowDataStoreTest Test take several minutes)
 
 ## Build Instruction
 

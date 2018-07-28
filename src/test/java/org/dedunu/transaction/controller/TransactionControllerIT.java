@@ -34,11 +34,11 @@ public class TransactionControllerIT {
         this.base = new URL("http://localhost:" + port + "/");
     }
 
-    public String getTransactionURL() {
+    private String getTransactionURL() {
         return base.toString() + "transaction";
     }
 
-    public String getStatisticsURL() {
+    private String getStatisticsURL() {
         return base.toString() + "statistics";
     }
 
