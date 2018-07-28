@@ -8,14 +8,14 @@ public class CursorTest {
     private Cursor cursor;
 
     @Test
-    public void moveAhead() {
+    public void moveAheadTest() {
         cursor = new Cursor(60);
         cursor.move();
         Assert.assertEquals(1, cursor.getPosition(0));
     }
 
     @Test
-    public void moveAheadTwice() {
+    public void moveAheadTwiceTest() {
         cursor = new Cursor(60);
         cursor.move();
         cursor.move();
@@ -23,7 +23,7 @@ public class CursorTest {
     }
 
     @Test
-    public void moveAheadEdgeRotation() {
+    public void moveAheadEdgeRotationTest() {
         cursor = new Cursor(5);
         for (int i = 0; i < 5; i++) {
             cursor.move();
@@ -32,7 +32,7 @@ public class CursorTest {
     }
 
     @Test
-    public void moveAheadEdge() {
+    public void moveAheadEdgeTest() {
         cursor = new Cursor(5);
         for (int i = 0; i < 4; i++) {
             cursor.move();
@@ -41,7 +41,7 @@ public class CursorTest {
     }
 
     @Test
-    public void moveAheadMultipleEdgeRotation() {
+    public void moveAheadMultipleEdgeRotationTest() {
         cursor = new Cursor(10);
         for (int i = 0; i < 100; i++) {
             cursor.move();
@@ -50,13 +50,13 @@ public class CursorTest {
     }
 
     @Test
-    public void invalidGetPosition() {
+    public void invalidGetPositionTest() {
         cursor = new Cursor(10);
         Assert.assertEquals(-1, cursor.getPosition(10));
     }
 
     @Test
-    public void initialGetPositionValidation() {
+    public void initialGetPositionValidationTest() {
         cursor = new Cursor(10);
         Assert.assertEquals(0, cursor.getPosition(0));
         Assert.assertEquals(9, cursor.getPosition(1));
@@ -72,7 +72,7 @@ public class CursorTest {
     }
 
     @Test
-    public void moveAheadGetPositionValidation() {
+    public void moveAheadGetPositionValidationTest() {
         cursor = new Cursor(10);
         for (int i = 0; i < 9; i++) {
             cursor.move();
@@ -91,7 +91,7 @@ public class CursorTest {
     }
 
     @Test
-    public void moveAheadRotationGetPositionValidation() {
+    public void moveAheadRotationGetPositionValidationTest() {
         cursor = new Cursor(10);
         for (int i = 0; i < 10; i++) {
             cursor.move();
@@ -110,7 +110,7 @@ public class CursorTest {
     }
 
     @Test
-    public void moveAheadEdgeGetPositionValidation() {
+    public void moveAheadEdgeGetPositionValidationTest() {
         cursor = new Cursor(10);
         cursor.move();
         Assert.assertEquals(1, cursor.getPosition(0));

@@ -11,13 +11,13 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 class SlidingWindowDataStore {
 
-    private Logger logger = LoggerFactory.getLogger(SlidingWindowDataStore.class);
+    private final Logger logger = LoggerFactory.getLogger(SlidingWindowDataStore.class);
 
     // ReentrantReadWrite lock is using fair to treat transactions fairly.
-    private ReadWriteLock readWriteLock = new ReentrantReadWriteLock(true);
+    private final ReadWriteLock readWriteLock = new ReentrantReadWriteLock(true);
 
-    private Lock readLock = readWriteLock.readLock();
-    private Lock writeLock = readWriteLock.writeLock();
+    private final Lock readLock = readWriteLock.readLock();
+    private final Lock writeLock = readWriteLock.writeLock();
 
     private final int PERIOD = 60;
 

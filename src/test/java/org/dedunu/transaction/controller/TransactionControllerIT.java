@@ -43,14 +43,14 @@ public class TransactionControllerIT {
     }
 
     @Test
-    public void getHello() throws Exception {
+    public void getHelloTest() throws Exception {
         ResponseEntity<String> response = template.getForEntity(base.toString(),
                 String.class);
         assertThat(response.getBody(), equalTo("Greetings from Transaction Demo!"));
     }
 
     @Test
-    public void firstGetTransaction() throws Exception {
+    public void firstGetTransactionTest() throws Exception {
         ResponseEntity<Statistics> response = template.getForEntity(getStatisticsURL(),
                 Statistics.class);
         assertThat(response.getBody().getCount(), equalTo(0L));
@@ -62,7 +62,7 @@ public class TransactionControllerIT {
 
 
     @Test
-    public void olderTransactionUpdateValidation() throws Exception {
+    public void olderTransactionUpdateValidationTest() throws Exception {
         Transaction transaction = new Transaction(1000.0, System.currentTimeMillis() - 61000);
 
         HttpEntity<Transaction> entity = new HttpEntity<>(transaction, new HttpHeaders());
@@ -75,7 +75,7 @@ public class TransactionControllerIT {
     }
 
     @Test
-    public void futureTransactionUpdateValidation() throws Exception {
+    public void futureTransactionUpdateValidationTest() throws Exception {
         Transaction transaction = new Transaction(1000.0, System.currentTimeMillis() + 1000);
 
         HttpEntity<Transaction> entity = new HttpEntity<>(transaction, new HttpHeaders());
@@ -89,7 +89,7 @@ public class TransactionControllerIT {
 
 
     @Test
-    public void validTransaction() throws Exception {
+    public void validTransactionTest() throws Exception {
         Transaction transaction = new Transaction(1000.0, System.currentTimeMillis());
 
         HttpEntity<Transaction> entity = new HttpEntity<>(transaction, new HttpHeaders());

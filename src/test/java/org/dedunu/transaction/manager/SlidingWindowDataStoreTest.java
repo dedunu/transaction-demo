@@ -11,7 +11,7 @@ public class SlidingWindowDataStoreTest {
     private Statistics statistics;
 
     @Test
-    public void firstDataPoint() {
+    public void firstDataPointTest() {
         slidingWindowDataStore = new SlidingWindowDataStore();
         slidingWindowDataStore.updateStatistics(1000, (System.currentTimeMillis()/1000));
 
@@ -25,7 +25,7 @@ public class SlidingWindowDataStoreTest {
     }
 
     @Test
-    public void multipleDataPoints() {
+    public void multipleDataPointsTest() {
         slidingWindowDataStore = new SlidingWindowDataStore();
         slidingWindowDataStore.updateStatistics(1000, (System.currentTimeMillis()/1000));
         slidingWindowDataStore.updateStatistics(1000, (System.currentTimeMillis()/1000)-1);
@@ -44,7 +44,7 @@ public class SlidingWindowDataStoreTest {
 
 
     @Test
-    public void minDataPoints() {
+    public void minDataPointsTest() {
         slidingWindowDataStore = new SlidingWindowDataStore();
 
         slidingWindowDataStore.updateStatistics(1000, (System.currentTimeMillis()/1000));
@@ -66,7 +66,7 @@ public class SlidingWindowDataStoreTest {
 
 
     @Test
-    public void timeWindowTestUniform() throws InterruptedException {
+    public void timeWindowTestUniformTest() throws InterruptedException {
         slidingWindowDataStore = new SlidingWindowDataStore();
 
         for (int i = 0; i < 70; i++) {
