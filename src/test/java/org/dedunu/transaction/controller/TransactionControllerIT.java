@@ -54,7 +54,7 @@ public class TransactionControllerIT {
 
 
     @Test
-    public void olderTransactionUpdate() throws Exception {
+    public void olderTransactionUpdateValidation() throws Exception {
         Transaction transaction = new Transaction(1000.0, System.currentTimeMillis() - 61000);
 
         HttpEntity<Transaction> entity = new HttpEntity<>(transaction, new HttpHeaders());
@@ -67,7 +67,7 @@ public class TransactionControllerIT {
     }
 
     @Test
-    public void futureTransactionUpdate() throws Exception {
+    public void futureTransactionUpdateValidation() throws Exception {
         Transaction transaction = new Transaction(1000.0, System.currentTimeMillis() + 1000);
 
         HttpEntity<Transaction> entity = new HttpEntity<>(transaction, new HttpHeaders());
@@ -77,6 +77,28 @@ public class TransactionControllerIT {
                 HttpMethod.POST, entity, String.class);
 
         assertEquals(HttpStatus.NO_CONTENT, response.getStatusCode());
+    }
+
+
+    @Test
+    public void validTransaction() throws Exception {
+        Transaction transaction = new Transaction(1000.0, System.currentTimeMillis());
+
+        HttpEntity<Transaction> entity = new HttpEntity<>(transaction, new HttpHeaders());
+
+        ResponseEntity<String> response = template.exchange(
+                base.toString() + "transaction",
+                HttpMethod.POST, entity, String.class);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+
+        ResponseEntity<Statistics> response2 = template.getForEntity(base.toString() + "statistics",
+                Statistics.class);
+        assertThat(response2.getBody().getCount(), equalTo(1L));
+        assertThat(response2.getBody().getMin(), equalTo(1000.0));
+        assertThat(response2.getBody().getMax(), equalTo(1000.0));
+        assertThat(response2.getBody().getSum(), equalTo(1000.0));
+        assertThat(response2.getBody().getAvg(), equalTo(1000.0));
     }
 }
 
