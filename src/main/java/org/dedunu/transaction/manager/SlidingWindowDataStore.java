@@ -9,9 +9,9 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-public class SlidingWindowDataStore {
+class SlidingWindowDataStore {
 
-    Logger logger = LoggerFactory.getLogger(SlidingWindowDataStore.class);
+    private Logger logger = LoggerFactory.getLogger(SlidingWindowDataStore.class);
 
     // ReentrantReadWrite lock is using fair to treat transactions fairly.
     private ReadWriteLock readWriteLock = new ReentrantReadWriteLock(true);
@@ -150,7 +150,7 @@ public class SlidingWindowDataStore {
      *  If data store didn't receive any data point for last 60 seconds. All the
      *  data in memory has to be wiped. This will start it do it.
      */
-    public void reset() {
+    private void reset() {
         sumWindow = new double[PERIOD];
         maxWindow = new double[PERIOD];
         minWindow = new double[PERIOD];
@@ -164,7 +164,7 @@ public class SlidingWindowDataStore {
         Arrays.fill(minWindow, -1);
     }
 
-    public void moveCursor() {
+    private void moveCursor() {
         cursor.move();
         sumWindow[cursor.getPosition(0)] = 0;
         maxWindow[cursor.getPosition(0)] = 0;

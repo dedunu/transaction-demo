@@ -9,6 +9,7 @@ public class SlidingWindowDataStoreTest {
     private SlidingWindowDataStore slidingWindowDataStore;
 
     private Statistics statistics;
+
     @Test
     public void firstDataPoint() {
         slidingWindowDataStore = new SlidingWindowDataStore();

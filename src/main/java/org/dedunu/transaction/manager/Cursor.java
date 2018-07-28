@@ -1,6 +1,6 @@
 package org.dedunu.transaction.manager;
 
-public class Cursor {
+class Cursor {
 
     private int cursorSize;
     private int cursor = 0;

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class TransactionController {
-    Logger logger = LoggerFactory.getLogger(TransactionController.class);
+    private Logger logger = LoggerFactory.getLogger(TransactionController.class);
 
     @RequestMapping("/")
     public String index() {
@@ -20,9 +20,9 @@ public class TransactionController {
 
     @PostMapping("/transaction")
     ResponseEntity<?> addTransaction(@RequestBody Transaction transaction) {
-        boolean isSucess = TransactionManager.INSTANCE.addTransaction(transaction);
+        boolean isSuccess = TransactionManager.INSTANCE.addTransaction(transaction);
 
-        if (isSucess) {
+        if (isSuccess) {
             logger.debug("Successful transaction " + transaction.toString());
             return ResponseEntity.ok().build();
         } else {
