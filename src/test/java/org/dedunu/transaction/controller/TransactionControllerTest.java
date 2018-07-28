@@ -28,4 +28,11 @@ public class TransactionControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().string(equalTo("Greetings from Transaction Demo!")));
     }
+
+    @Test
+    public void healthTest() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/actuator/health").accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().string(equalTo("{\"status\":\"UP\"}")));
+    }
 }
