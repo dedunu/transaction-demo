@@ -34,6 +34,14 @@ public class TransactionControllerIT {
         this.base = new URL("http://localhost:" + port + "/");
     }
 
+    public String getTransactionURL() {
+        return base.toString() + "transaction";
+    }
+
+    public String getStatisticsURL() {
+        return base.toString() + "statistics";
+    }
+
     @Test
     public void getHello() throws Exception {
         ResponseEntity<String> response = template.getForEntity(base.toString(),
@@ -43,7 +51,7 @@ public class TransactionControllerIT {
 
     @Test
     public void firstGetTransaction() throws Exception {
-        ResponseEntity<Statistics> response = template.getForEntity(base.toString() + "statistics",
+        ResponseEntity<Statistics> response = template.getForEntity(getStatisticsURL(),
                 Statistics.class);
         assertThat(response.getBody().getCount(), equalTo(0L));
         assertThat(response.getBody().getMin(), equalTo(0.0));
@@ -60,7 +68,7 @@ public class TransactionControllerIT {
         HttpEntity<Transaction> entity = new HttpEntity<>(transaction, new HttpHeaders());
 
         ResponseEntity<String> response = template.exchange(
-                base.toString() + "transaction",
+                getTransactionURL(),
                 HttpMethod.POST, entity, String.class);
 
         assertEquals(HttpStatus.NO_CONTENT, response.getStatusCode());
@@ -73,7 +81,7 @@ public class TransactionControllerIT {
         HttpEntity<Transaction> entity = new HttpEntity<>(transaction, new HttpHeaders());
 
         ResponseEntity<String> response = template.exchange(
-                base.toString() + "transaction",
+                getTransactionURL(),
                 HttpMethod.POST, entity, String.class);
 
         assertEquals(HttpStatus.NO_CONTENT, response.getStatusCode());
@@ -87,12 +95,12 @@ public class TransactionControllerIT {
         HttpEntity<Transaction> entity = new HttpEntity<>(transaction, new HttpHeaders());
 
         ResponseEntity<String> response = template.exchange(
-                base.toString() + "transaction",
+                getTransactionURL(),
                 HttpMethod.POST, entity, String.class);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
 
-        ResponseEntity<Statistics> response2 = template.getForEntity(base.toString() + "statistics",
+        ResponseEntity<Statistics> response2 = template.getForEntity(getStatisticsURL(),
                 Statistics.class);
         assertThat(response2.getBody().getCount(), equalTo(1L));
         assertThat(response2.getBody().getMin(), equalTo(1000.0));
