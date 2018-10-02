@@ -1,10 +1,5 @@
 package org.dedunu.transaction.controller;
 
-import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.*;
-
-import java.net.URL;
-
 import org.dedunu.transaction.model.Statistics;
 import org.dedunu.transaction.model.Transaction;
 import org.junit.Before;
@@ -16,6 +11,12 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.net.URL;
+
+import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
