@@ -41,6 +41,7 @@ public class Statistics {
     /**
      * This was annotated in order to recognized by Spring framework.
      * In case of zero count, average will be zero too.
+     *
      * @return Average value of the last 60 seconds time period
      */
     @JsonProperty
