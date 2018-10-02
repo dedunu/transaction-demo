@@ -1,8 +1,8 @@
 package org.dedunu.transaction.controller;
 
+import org.dedunu.transaction.manager.TransactionManager;
 import org.dedunu.transaction.model.Statistics;
 import org.dedunu.transaction.model.Transaction;
-import org.dedunu.transaction.manager.TransactionManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
