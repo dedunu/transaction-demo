@@ -2,7 +2,6 @@ package org.dedunu.transaction.manager;
 
 import org.dedunu.transaction.model.Statistics;
 import org.dedunu.transaction.model.Transaction;
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;

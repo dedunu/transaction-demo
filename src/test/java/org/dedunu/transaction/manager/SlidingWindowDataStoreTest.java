@@ -14,7 +14,7 @@ public class SlidingWindowDataStoreTest {
     @Test
     public void firstDataPointTest() {
         slidingWindowDataStore = new SlidingWindowDataStore();
-        slidingWindowDataStore.updateStatistics(1000, (System.currentTimeMillis()/1000));
+        slidingWindowDataStore.updateStatistics(1000, (System.currentTimeMillis() / 1000));
 
         statistics = slidingWindowDataStore.getStatistics();
 
@@ -28,11 +28,11 @@ public class SlidingWindowDataStoreTest {
     @Test
     public void multipleDataPointsTest() {
         slidingWindowDataStore = new SlidingWindowDataStore();
-        slidingWindowDataStore.updateStatistics(1000, (System.currentTimeMillis()/1000));
-        slidingWindowDataStore.updateStatistics(1000, (System.currentTimeMillis()/1000)-1);
-        slidingWindowDataStore.updateStatistics(1000, (System.currentTimeMillis()/1000)-2);
-        slidingWindowDataStore.updateStatistics(1000, (System.currentTimeMillis()/1000)-3);
-        slidingWindowDataStore.updateStatistics(1000, (System.currentTimeMillis()/1000)-4);
+        slidingWindowDataStore.updateStatistics(1000, (System.currentTimeMillis() / 1000));
+        slidingWindowDataStore.updateStatistics(1000, (System.currentTimeMillis() / 1000) - 1);
+        slidingWindowDataStore.updateStatistics(1000, (System.currentTimeMillis() / 1000) - 2);
+        slidingWindowDataStore.updateStatistics(1000, (System.currentTimeMillis() / 1000) - 3);
+        slidingWindowDataStore.updateStatistics(1000, (System.currentTimeMillis() / 1000) - 4);
 
         statistics = slidingWindowDataStore.getStatistics();
 
@@ -48,17 +48,17 @@ public class SlidingWindowDataStoreTest {
     public void minDataPointsTest() {
         slidingWindowDataStore = new SlidingWindowDataStore();
 
-        slidingWindowDataStore.updateStatistics(1000, (System.currentTimeMillis()/1000));
-        slidingWindowDataStore.updateStatistics(10, (System.currentTimeMillis()/1000)-1);
-        slidingWindowDataStore.updateStatistics(1, (System.currentTimeMillis()/1000)-2);
-        slidingWindowDataStore.updateStatistics(1000, (System.currentTimeMillis()/1000)-3);
-        slidingWindowDataStore.updateStatistics(1000, (System.currentTimeMillis()/1000)-4);
+        slidingWindowDataStore.updateStatistics(1000, (System.currentTimeMillis() / 1000));
+        slidingWindowDataStore.updateStatistics(10, (System.currentTimeMillis() / 1000) - 1);
+        slidingWindowDataStore.updateStatistics(1, (System.currentTimeMillis() / 1000) - 2);
+        slidingWindowDataStore.updateStatistics(1000, (System.currentTimeMillis() / 1000) - 3);
+        slidingWindowDataStore.updateStatistics(1000, (System.currentTimeMillis() / 1000) - 4);
 
         statistics = slidingWindowDataStore.getStatistics();
 
         Assert.assertEquals(1, statistics.getMin(), 0.001);
 
-        slidingWindowDataStore.updateStatistics(0.5, (System.currentTimeMillis()/1000)-3);
+        slidingWindowDataStore.updateStatistics(0.5, (System.currentTimeMillis() / 1000) - 3);
 
         statistics = slidingWindowDataStore.getStatistics();
 
