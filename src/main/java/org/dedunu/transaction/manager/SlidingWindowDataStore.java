@@ -115,7 +115,7 @@ class SlidingWindowDataStore {
         if (timestampDiff > 0 && timestampDiff <= PERIOD) {
             for (int i = 0; i < timestampDiff; i++) {
                 sum = sum + sumWindow[cursor.getPosition(i)];
-                max = Math.max(max,maxWindow[cursor.getPosition(i)]);
+                max = Math.max(max, maxWindow[cursor.getPosition(i)]);
 
                 if (minWindow[cursor.getPosition(i)] != -1 && min > 0) {
                     min = Math.min(min, minWindow[cursor.getPosition(i)]);
@@ -145,10 +145,10 @@ class SlidingWindowDataStore {
     /**
      * Resets all the variables in the data store. This will be called when
      * cursor needs to be moved more than the period of times.
-     *
+     * <p>
      * ex:
-     *  If data store didn't receive any data point for last 60 seconds. All the
-     *  data in memory has to be wiped. This will start it do it.
+     * If data store didn't receive any data point for last 60 seconds. All the
+     * data in memory has to be wiped. This will start it do it.
      */
     private void reset() {
         sumWindow = new double[PERIOD];

@@ -12,7 +12,7 @@ public class Transaction implements Serializable {
     private long timestamp;
     private double amount;
 
-    public Transaction(@JsonProperty("amount")double amount, @JsonProperty("timestamp")long timestamp) {
+    public Transaction(@JsonProperty("amount") double amount, @JsonProperty("timestamp") long timestamp) {
         this.amount = amount;
         this.timestamp = timestamp;
     }
@@ -34,6 +34,6 @@ public class Transaction implements Serializable {
     }
 
     public String toString() {
-        return "Transaction[ Amount: " + amount + ", Timestamp: " + timestamp +" ]";
+        return "Transaction[ Amount: " + amount + ", Timestamp: " + timestamp + " ]";
     }
 }
