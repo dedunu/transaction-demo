@@ -8,6 +8,14 @@
     <artifactId>transaction-demo</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <distributionManagement>
+      <repository>
+        <id>github</id>
+        <name>Github Packages</name>
+        <url>https://maven.pkg.github.com/dedunu/transaction-demo</url>
+      </repository>
+    </distributionManagement>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
